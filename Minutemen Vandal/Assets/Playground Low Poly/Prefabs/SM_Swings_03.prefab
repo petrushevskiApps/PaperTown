@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6223009689066827178}
   - component: {fileID: 8194410704555776352}
   - component: {fileID: 4510776674352587053}
+  - component: {fileID: -7920480798722885885}
   m_Layer: 0
   m_Name: SM_Swings_03
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4510776674352587053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,3 +96,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0670362, y: 2.5263565, z: 1.2077563}
   m_Center: {x: 0, y: 1.2631835, z: 0.0000012218952}
+--- !u!114 &-7920480798722885885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7690065063643396277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

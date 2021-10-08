@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7281506928498762534}
   - component: {fileID: 4592164608756347060}
   - component: {fileID: 1917636536020670647}
+  - component: {fileID: -1196369151386043876}
   m_Layer: 0
   m_Name: SM_Chair_02
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4592164608756347060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,3 +110,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.40029907, y: 0.33752406, z: 0.024849057}
   m_Center: {x: -0.0000006109476, y: 0.5306978, z: 0.20059548}
+--- !u!114 &-1196369151386043876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083170598403261171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

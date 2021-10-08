@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4737724179934506876}
   - component: {fileID: 7746499133612153564}
   - component: {fileID: 2251870962923291709}
+  - component: {fileID: 2878093491756131606}
   m_Layer: 0
   m_Name: SM_Tree_03
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7746499133612153564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,3 +110,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6208954, y: 3.189845, z: 0.56837463}
   m_Center: {x: 0.041526794, y: 1.5903966, z: 0.013388157}
+--- !u!114 &2878093491756131606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539010581056835241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

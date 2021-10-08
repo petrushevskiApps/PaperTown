@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 507486712583522601}
   - component: {fileID: 2337998866708999654}
   - component: {fileID: 819142549382800636}
+  - component: {fileID: -7928896826606745190}
   m_Layer: 0
   m_Name: SM_Railings_Angle_01
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2337998866708999654
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,3 +110,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07112932, y: 0.92867786, z: 2.2339404}
   m_Center: {x: 2.198952, y: 0.46433893, z: -1.0830323}
+--- !u!114 &-7928896826606745190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020436221224429820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

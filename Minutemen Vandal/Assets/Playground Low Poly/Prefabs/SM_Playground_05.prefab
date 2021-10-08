@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3541619043127364172}
   - component: {fileID: 5352206670831905945}
   - component: {fileID: 2347153201604731602}
+  - component: {fileID: -920761258891092865}
   m_Layer: 0
   m_Name: SM_Playground_05
   m_TagString: Untagged
@@ -58,6 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3541619043127364172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121,3 +124,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.170073, y: 1.849704, z: 0.66944337}
   m_Center: {x: 0.9357827, y: 0.9216399, z: -1.8666234e-16}
+--- !u!114 &-920761258891092865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207457694302367893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

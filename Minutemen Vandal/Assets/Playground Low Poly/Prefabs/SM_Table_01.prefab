@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1876927582808371457}
   - component: {fileID: 4461053994205971915}
   - component: {fileID: 3724619889970047583}
+  - component: {fileID: -4931786337855473535}
   m_Layer: 0
   m_Name: SM_Table_01
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3724619889970047583
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,3 +96,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0085205, y: 0.7284257, z: 0.9436743}
   m_Center: {x: 0, y: 0.36420885, z: 0.000001206994}
+--- !u!114 &-4931786337855473535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803530938579133470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

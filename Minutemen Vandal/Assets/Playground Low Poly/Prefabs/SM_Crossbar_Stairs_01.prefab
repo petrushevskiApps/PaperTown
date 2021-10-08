@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3065770940671854600}
   - component: {fileID: 4025326899328719010}
   - component: {fileID: 1719348127992067768}
+  - component: {fileID: -1882148787902836099}
   m_Layer: 0
   m_Name: SM_Crossbar_Stairs_01
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,6 +87,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1496977287716721830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,3 +166,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06597662, y: 0.0417099, z: 1.0086374}
   m_Center: {x: 0.9412296, y: 1.9152536, z: -0.4645338}
+--- !u!114 &-1882148787902836099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530147588502193990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1
