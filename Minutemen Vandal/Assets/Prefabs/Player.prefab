@@ -99,8 +99,15 @@ MonoBehaviour:
   _maxRoundsPerSecond: 15
   _shotgunNumberOfBullets: 15
   _shotgunSpreadAngle: 3
+  _laserLineRenderer: {fileID: 0}
+  _availableColor:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.2271074, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.39788818, b: 1, a: 1}
+  - {r: 0.97311616, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   _bulletSpeed: 15
-  _paintColor: {r: 1, g: 0.4451502, b: 0, a: 1}
   _destroyAfterTime: 1
   _radius: 0.5
   _strength: 0.2
@@ -328,8 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 7580051087991191384}
   orientation: {fileID: 7580051088972396841}
-  moveSpeed: 2500
-  maxSpeed: 10
+  moveSpeed: 1500
+  maxSpeed: 5
   grounded: 0
   whatIsGround:
     serializedVersion: 2

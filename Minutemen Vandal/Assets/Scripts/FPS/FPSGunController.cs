@@ -14,12 +14,18 @@ public class FPSGunController : MonoBehaviour
     private int _shotgunNumberOfBullets;
     [SerializeField]
     private float _shotgunSpreadAngle = 3;
+    [SerializeField]
+    private LineRenderer _laserLineRenderer;
+    [SerializeField]
+    private ColorSwitchUI[] _actionBarButtons;
+
+    [SerializeField]
+    private Color[] _availableColor;
 
     [Header("Bullet Data")]
     [SerializeField]
     private float _bulletSpeed = 20;
-    [SerializeField]
-    Color _paintColor;
+    private Color _paintColor => _availableColor[_currentColorIndex];
     [SerializeField]
     private float _destroyAfterTime = 3;
     [SerializeField]
@@ -31,9 +37,39 @@ public class FPSGunController : MonoBehaviour
 
     private float _shootTime => 1f / (float)_maxRoundsPerSecond;
     private float _lastShotTime = 0;
+    private int _currentColorIndex = 0;
+
+    private void Start()
+    {
+        for (int i = 0; i < _actionBarButtons.Length; i++)
+        {
+            _actionBarButtons[i].SetUI(_availableColor[i], i == 0, (i+1).ToString());
+        }
+    }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetActiveColor(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetActiveColor(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SetActiveColor(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SetActiveColor(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            SetActiveColor(4);
+        }
+
         if (Input.GetMouseButton(0))
         {
             if (_lastShotTime + _shootTime < Time.time)
@@ -49,6 +85,15 @@ public class FPSGunController : MonoBehaviour
                 }
                 _lastShotTime = Time.time;
             }
+        }
+    }
+
+    private void SetActiveColor(int index)
+    {
+        _currentColorIndex = index;
+        for (int i = 0; i < _actionBarButtons.Length; i++)
+        {
+            _actionBarButtons[i].SetActive(i == index);
         }
     }
 

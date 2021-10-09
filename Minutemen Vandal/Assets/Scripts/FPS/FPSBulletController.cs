@@ -48,7 +48,7 @@ public class FPSBulletController : MonoBehaviour
         _strength = strength;
         _hardness = hardness;
         Destroy(gameObject, _destroyAfterTime);
-        paintColor += new Color(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 1);
+        paintColor += new Color(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), paintColor.a);
         GetComponent<MeshRenderer>().material.color = paintColor;
     }
 }
