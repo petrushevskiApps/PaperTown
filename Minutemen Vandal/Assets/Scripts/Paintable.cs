@@ -34,7 +34,10 @@ public class Paintable : MonoBehaviour {
         supportTexture.filterMode =  FilterMode.Bilinear;
 
         rend = GetComponent<Renderer>();
-        rend.material.SetTexture(maskTextureID, extendIslandsRenderTexture);
+        foreach (Material material in rend.materials)
+        {
+            material.SetTexture(maskTextureID, extendIslandsRenderTexture);
+        }
 
         PaintManager.instance.initTextures(this);
     }
