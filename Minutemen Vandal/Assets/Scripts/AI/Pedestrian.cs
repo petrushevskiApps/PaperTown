@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,20 +9,24 @@ public class Pedestrian : MonoBehaviour
     public float wanderMaxRadius = 5;
     public float minimumMovementTimeout = 2f;
     public float maximumMovementTimeout = 5f;
+    public AiVisualConfig visualConfig;
+    public Transform ground;
+
+    private AiVisual selectedConfig;
 
     private void Start()
     {
-        StartCoroutine(WanderAround());
+        selectedConfig = visualConfig.aiVisuals.Random();
+        Instantiate(selectedConfig.VisualPrefab, ground);
+        StartCoroutine(MoveAround());
     }
 
-    private IEnumerator WanderAround()
+    private IEnumerator MoveAround()
     {
         while (true)
         {
             var destination = GetDestination();
-            agent.isStopped = true;
             agent.SetDestination(destination);
-            agent.isStopped = false;
             yield return new WaitForSeconds(GetMovementTimeout());
         }
     }
