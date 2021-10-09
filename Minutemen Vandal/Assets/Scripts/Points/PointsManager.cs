@@ -61,6 +61,11 @@ public class PointsManager : MonoBehaviour
     /// <returns></returns>
     private float SphereIntersectionVolume(float r, float R, float d)
     {
+        if (r + R < d)
+        {
+            // If sum of radii is greater than center distance, the spheres are not intersecting => intersection volume is 0.
+            return 0;
+        }
         return Mathf.PI * Mathf.Pow(R + r - d, 2) * (Mathf.Pow(d, 2) + 2 * d * r - 3 * Mathf.Pow(r, 2) + 2 * d * R - 3 * Mathf.Pow(R, 2) + 6 * r * R) / (12 * d);
     }
 
