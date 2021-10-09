@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mirror Shine
-    second: {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
+    second: {fileID: 2100000, guid: 3f18a706b75fc2c4e945a3cfe94ca7c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
