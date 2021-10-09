@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 4524177358331912939}
   - component: {fileID: 677440738223598926}
   - component: {fileID: 3351302142658009476}
-  - component: {fileID: 3392864078283809979}
-  - component: {fileID: 7421471710608698799}
   - component: {fileID: -1395899202683598263}
+  - component: {fileID: -7705352201738702540}
   m_Layer: 0
   m_Name: SM_Tree_01
   m_TagString: Untagged
@@ -84,32 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3392864078283809979
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855868508848879697}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5804062, y: 3.9511957, z: 1.9335823}
-  m_Center: {x: 0.19057846, y: 3.7264566, z: 0.14175999}
---- !u!65 &7421471710608698799
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855868508848879697}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.40032196, y: 1.7549016, z: 0.49532318}
-  m_Center: {x: 0.03330612, y: 0.87744606, z: 0.01063019}
 --- !u!114 &-1395899202683598263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-7705352201738702540
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855868508848879697}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4852173270581359318, guid: 8a60714c621cb4e41a806a69b9f550b3, type: 3}

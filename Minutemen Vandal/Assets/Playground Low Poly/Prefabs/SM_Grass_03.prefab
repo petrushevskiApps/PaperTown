@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6470251873330981611}
   - component: {fileID: 9092209669923020321}
   - component: {fileID: 2711608617559089623}
+  - component: {fileID: -3325309931361909288}
   m_Layer: 0
   m_Name: SM_Grass_03
   m_TagString: Untagged
@@ -95,3 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-3325309931361909288
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291038580486291444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1092962974284816551, guid: 8456ef77cb916964c828fb5eba04d79e, type: 3}

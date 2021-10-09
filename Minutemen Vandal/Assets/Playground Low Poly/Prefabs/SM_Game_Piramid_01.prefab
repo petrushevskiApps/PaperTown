@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9172678904532372155}
   - component: {fileID: 3152387587662089680}
   - component: {fileID: 5274829907632638535}
+  - component: {fileID: -2454591127161573742}
   m_Layer: 0
   m_Name: SM_Game_Piramid_01
   m_TagString: Untagged
@@ -109,3 +110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-2454591127161573742
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226899359155137390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5305240274268364217, guid: eaf645a9b6b38d441ad0ddc67b4e228f, type: 3}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5414969017206378672}
   - component: {fileID: 9046902956085088185}
   - component: {fileID: 6499240792670786275}
+  - component: {fileID: 5817172809189737417}
   m_Layer: 0
   m_Name: SM_Chair_01
   m_TagString: Untagged
@@ -123,3 +124,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &5817172809189737417
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573520422180465665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6941116027899902589, guid: 3d6ecf41db414bc4c97207b24a3e1958, type: 3}

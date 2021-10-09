@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1496760243092379966}
   - component: {fileID: 2551944598993622683}
   - component: {fileID: 328379448702083665}
-  - component: {fileID: 4265284775754379400}
   - component: {fileID: -3302320523675920070}
+  - component: {fileID: -4920062237487418065}
   m_Layer: 0
   m_Name: SM_Trash_03
   m_TagString: Untagged
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4265284775754379400
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2273859514413515652}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31659546, y: 0.45798203, z: 0.229104}
-  m_Center: {x: 0.0000006109476, y: 0.22899596, z: -0.0000012218952}
 --- !u!114 &-3302320523675920070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-4920062237487418065
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273859514413515652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6543747322353115166, guid: 1310d29d534ca6a4b85abebba16ed018, type: 3}

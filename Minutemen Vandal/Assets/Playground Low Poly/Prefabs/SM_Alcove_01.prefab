@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1356953098430389724}
   - component: {fileID: 2700759213738562169}
   - component: {fileID: 189135224197670579}
-  - component: {fileID: 4060766015187988109}
   - component: {fileID: 4847349697526347209}
   - component: {fileID: -4211649073186885821}
+  - component: {fileID: -2988807976605719027}
   m_Layer: 0
   m_Name: SM_Alcove_01
   m_TagString: Untagged
@@ -84,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4060766015187988109
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846208716538333030}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.0992393, y: 2.0360844, z: 2.445681}
-  m_Center: {x: -0.03512764, y: 1.0089937, z: 0.0000011920929}
 --- !u!65 &4847349697526347209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -123,3 +110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-2988807976605719027
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846208716538333030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1746623698574543475, guid: 0a1bf957c3fed784d9d4fea3de9f14b6, type: 3}

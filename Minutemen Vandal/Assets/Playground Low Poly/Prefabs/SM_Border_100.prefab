@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6218438277033267386}
   - component: {fileID: 2897350932960907442}
   - component: {fileID: -6755661810236253808}
+  - component: {fileID: -5369121882593695441}
   m_Layer: 0
   m_Name: SM_Border_100
   m_TagString: Untagged
@@ -109,3 +110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-5369121882593695441
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012496207360367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3351985439697478848, guid: be15455a1c1e56b42bd44be5c7a9c826, type: 3}

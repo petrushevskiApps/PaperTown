@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6218970142302082049}
   - component: {fileID: 7053169112958245796}
   - component: {fileID: 5045461745371639662}
-  - component: {fileID: 4536654419413199033}
   - component: {fileID: -8195985141524546524}
+  - component: {fileID: 4102326379515017015}
   m_Layer: 0
   m_Name: SM_Bench_01
   m_TagString: Untagged
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4536654419413199033
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6703019572579880635}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2570531, y: 0.42797396, z: 0.44798827}
-  m_Center: {x: 0, y: 0.21373154, z: -0.0000024437904}
 --- !u!114 &-8195985141524546524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &4102326379515017015
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703019572579880635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1391404856611701127, guid: a3df7d524c485ac45a6a1f6d4f4eaf62, type: 3}

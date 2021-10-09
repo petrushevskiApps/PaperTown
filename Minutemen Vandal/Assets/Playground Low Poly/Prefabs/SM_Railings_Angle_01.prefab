@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 1675858740678128198}
   - component: {fileID: 2372837558462021091}
   - component: {fileID: 507486712583522601}
-  - component: {fileID: 2337998866708999654}
-  - component: {fileID: 819142549382800636}
   - component: {fileID: -7928896826606745190}
+  - component: {fileID: -9114259325414789120}
   m_Layer: 0
   m_Name: SM_Railings_Angle_01
   m_TagString: Untagged
@@ -84,32 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2337998866708999654
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020436221224429820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2345185, y: 0.92867786, z: 0.059838295}
-  m_Center: {x: 1.1172574, y: 0.46433893, z: 0.004018835}
---- !u!65 &819142549382800636
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020436221224429820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.07112932, y: 0.92867786, z: 2.2339404}
-  m_Center: {x: 2.198952, y: 0.46433893, z: -1.0830323}
 --- !u!114 &-7928896826606745190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!64 &-9114259325414789120
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020436221224429820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4452005797335307278, guid: ec35da3e8fe34b44ba9b9c880ec0cb44, type: 3}
