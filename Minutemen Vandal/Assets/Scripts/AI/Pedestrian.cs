@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,16 +13,45 @@ public class Pedestrian : MonoBehaviour
     public AiVisualConfig visualConfig;
     public Transform ground;
 
-    private AiVisual selectedConfig;
+    protected GameObject visual;
+    protected float velocityThreshold = 0.25f;
+    protected AiVisual selectedConfig;
+    protected Animator animator;
 
     private void Start()
     {
         selectedConfig = visualConfig.aiVisuals.Random();
-        Instantiate(selectedConfig.VisualPrefab, ground);
+        visual = Instantiate(selectedConfig.VisualPrefab, ground);
+        animator = visual.GetComponentInChildren<Animator>(true);
         StartCoroutine(MoveAround());
     }
 
-    private IEnumerator MoveAround()
+    private void Update()
+    {
+        if (animator != null && animator.runtimeAnimatorController != null)
+        {
+            var animationChanged = HandleAnimation(animator);
+            if (animationChanged)
+            {
+                // Some animations move the transform, causing game objects to drift or sink.
+                visual.transform.localPosition = Vector3.zero;
+            }
+        }
+    }
+
+    protected virtual bool HandleAnimation(Animator animator)
+    {
+        if (agent.velocity.magnitude < velocityThreshold)
+        {
+            return animator.SetTriggerIfNotInState(selectedConfig.idleTrigger, selectedConfig.idleState);
+        }
+        else
+        {
+            return animator.SetTriggerIfNotInState(selectedConfig.walkTrigger, selectedConfig.walkState);
+        }
+    }
+
+    protected IEnumerator MoveAround()
     {
         while (true)
         {

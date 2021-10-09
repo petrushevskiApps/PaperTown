@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OfficerVisualConfig
   m_EditorClassIdentifier: 
   aiVisuals:
-  - VisualPrefab: {fileID: 1254403252897968, guid: 1d3e21374171a4335a8a51ecb8bf2d17, type: 3}
+  - VisualPrefab: {fileID: 3912320262026788341, guid: 9bfb4980251a5584098f3780341d6152, type: 3}
