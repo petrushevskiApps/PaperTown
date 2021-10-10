@@ -47,7 +47,7 @@ MonoBehaviour:
   _onHitSoundClip: {fileID: 8300000, guid: 16f2e566090fed846bec7b6ac02e072c, type: 3}
   _onStepSoundClip: {fileID: 8300000, guid: 2c313b62c92f2854f95c427a94dec773, type: 3}
   musicAudioSource: {fileID: 0}
-  menuMusicClip: {fileID: 8300000, guid: d45188998e2bf4e4787251b8e360d61d, type: 3}
+  menuMusicClip: {fileID: 8300000, guid: 8cdc2526ce5214b4f90d9fd152f52e38, type: 3}
   gameplayMusicClip: {fileID: 0}
   soundsAudioSource: {fileID: 0}
   levelCompletedClip: {fileID: 8300000, guid: 5d20fe9d335fcc543a3edde41486b325, type: 3}
