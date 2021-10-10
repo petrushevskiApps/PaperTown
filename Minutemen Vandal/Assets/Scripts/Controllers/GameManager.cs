@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private int currentGunIndex = 0;
     private int levelPoints = 0;
     private bool isPaused;
+    private bool isInLevel = false;
 
     private PointsManager pointsManager;
     [SerializeField] private GameObject environmentInstance;
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel()
     {
+        isInLevel = true;
         isPaused = false;
         ResetEnvironment();
         LevelProgress = 0;
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour
     }
     public void PauseLevel()
     {
+        isInLevel = true;
         isPaused = true;
         Time.timeScale = 0;
         OnLevelPaused.Invoke();
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeLevel()
     {
+        isInLevel = true;
         isPaused = false;
         Time.timeScale = 1;
         OnLevelResumed.Invoke();
@@ -135,6 +139,7 @@ public class GameManager : MonoBehaviour
     }
     public void ExitLevel()
     {
+        isInLevel = false;
         isPaused = false;
         Time.timeScale = 1;
         OnLevelExited.Invoke();
@@ -147,6 +152,7 @@ public class GameManager : MonoBehaviour
     }
     public void LevelFailed()
     {
+        isInLevel = false;
         isPaused = false;
         OnLevelFailed.Invoke();
         player.SetActive(false);
@@ -155,6 +161,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
+        isInLevel = false;
         isPaused = false;
         LevelId++;
         OnLevelCompleted.Invoke();
@@ -224,7 +231,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && isInLevel)
         {
             if (!isPaused)
             {
