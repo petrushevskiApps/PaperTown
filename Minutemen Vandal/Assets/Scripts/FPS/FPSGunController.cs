@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FPSGunController : MonoBehaviour
 {
+    public string GunName;
     [SerializeField]
     private FPSBulletController _bulletPrefab;
     [SerializeField]
@@ -34,7 +35,7 @@ public class FPSGunController : MonoBehaviour
     {
         get
         {
-            return _availableColor[_currentColorIndex];
+            return _availableColor != null ? _availableColor[_currentColorIndex] : Color.white;
         }
     }
     [SerializeField]
@@ -66,6 +67,12 @@ public class FPSGunController : MonoBehaviour
         GameManager.Instance.OnLevelExited.RemoveListener(OnLevelExited);
         GameManager.Instance.OnLevelCompleted.RemoveListener(OnLevelExited);
         GameManager.Instance.OnLevelFailed.RemoveListener(OnLevelExited);
+    }
+
+    private void OnEnable()
+    {
+        SetActiveColor(0);
+        isLevelActive = true;
     }
 
     private void OnLevelStart()

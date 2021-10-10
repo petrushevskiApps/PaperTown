@@ -22,11 +22,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject environmentPrefab;
     [SerializeField] private List<LevelData> listLevelDatas;
     [SerializeField] private ColorSwitchUI[] colorSwitchActionButtons;
+    [SerializeField] private FPSGunController[] guns;
 
     public static GameManager Instance;
 
     private float levelProgress = 0;
-
+    private int currentGunIndex = 0;
     private int levelPoints = 0;
     private bool isPaused;
 
@@ -83,6 +84,14 @@ public class GameManager : MonoBehaviour
 
         pointsManager = GetComponent<PointsManager>();
         pointsManager.OnColorPoints.AddListener(OnPointsAdded);
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < guns.Length; i++)
+        {
+            guns[i].transform.parent.gameObject.SetActive(i == currentGunIndex);
+        }
     }
 
     private void OnPointsAdded(int points)
@@ -218,5 +227,25 @@ public class GameManager : MonoBehaviour
                 ResumeLevel();
             }
         }
+    }
+
+    public string ChangeGun(bool nextGun = true)
+    {
+        string gunName = "";
+        int indexMove = nextGun ? 1 : -1;
+        currentGunIndex += indexMove;
+        if(currentGunIndex >= guns.Length || currentGunIndex < 0)
+        {
+            currentGunIndex = 0;
+        }
+        for (int i = 0; i < guns.Length; i++)
+        {
+            guns[i].transform.parent.gameObject.SetActive(i == currentGunIndex);
+            if (i == currentGunIndex)
+            {
+                gunName = guns[i].GunName;
+            }
+        }
+        return gunName;
     }
 }
