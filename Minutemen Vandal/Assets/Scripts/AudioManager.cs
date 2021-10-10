@@ -89,6 +89,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMenuMusic()
     {
+        if (menuMusicClip == null)
+        {
+            return;
+        }
         musicAudioSource.clip = menuMusicClip;
         musicAudioSource.volume = 1;
         musicAudioSource.Play();
@@ -96,6 +100,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGameplayMusic()
     {
+        if (menuMusicClip == null)
+        {
+            return;
+        }
         musicAudioSource.clip = gameplayMusicClip;
         musicAudioSource.volume = 1;
         musicAudioSource.Play();
@@ -103,6 +111,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayLevelCompletedSoundEffect()
     {
+        if (levelCompletedClip == null)
+        {
+            return;
+        }
         soundsAudioSource.PlayOneShot(levelCompletedClip);
     }
 
