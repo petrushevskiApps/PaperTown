@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private float levelProgress = 0;
     
     private int levelPoints = 0;
+    private bool isPaused;
 
     private PointsManager pointsManager;
     [SerializeField]  private GameObject environmentInstance;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel()
     {
+        isPaused = false;
         ResetEnvironment();
         LevelProgress = 0;
         OnLevelStarted.Invoke();
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
     }
     public void PauseLevel()
     {
+        isPaused = true;
         Time.timeScale = 0;
         OnLevelPaused.Invoke();
         ToggleCursor(true);
@@ -114,12 +117,14 @@ public class GameManager : MonoBehaviour
 
     public void ResumeLevel()
     {
+        isPaused = false;
         Time.timeScale = 1;
         OnLevelResumed.Invoke();
         ToggleCursor(false);
     }
     public void ExitLevel()
     {
+        isPaused = false;
         OnLevelExited.Invoke();
         player.SetActive(false);
         ToggleCursor(true);
@@ -130,6 +135,7 @@ public class GameManager : MonoBehaviour
     }
     public void LevelFailed()
     {
+        isPaused = false;
         OnLevelFailed.Invoke();
         player.SetActive(false);
         ToggleCursor(true);
@@ -137,6 +143,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
+        isPaused = false;
         LevelId++;
         OnLevelCompleted.Invoke();
         player.SetActive(false);
@@ -179,6 +186,21 @@ public class GameManager : MonoBehaviour
         else
         {
             return listLevelDatas[listLevelDatas.Count - 1];
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPaused)
+            {
+                PauseLevel();
+            }
+            else
+            {
+                ResumeLevel();
+            }
         }
     }
 }

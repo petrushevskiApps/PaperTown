@@ -15,6 +15,8 @@ public class CameraControler : MonoBehaviour
         GameManager.Instance.OnGameStarted.AddListener(ActivateMainMenuCamera);
         GameManager.Instance.OnLevelStarted.AddListener(ActivatePlayerCamera);
         GameManager.Instance.OnLevelExited.AddListener(ActivateMainMenuCamera);
+        GameManager.Instance.OnLevelPaused.AddListener(ActivateMainMenuCamera);
+        GameManager.Instance.OnLevelResumed.AddListener(ActivatePlayerCamera);
 
         cameras.Add(mainMenuCamera);
         cameras.Add(playerCamera);
@@ -26,6 +28,8 @@ public class CameraControler : MonoBehaviour
         GameManager.Instance.OnGameStarted.RemoveListener(ActivateMainMenuCamera);
         GameManager.Instance.OnLevelStarted.RemoveListener(ActivatePlayerCamera);
         GameManager.Instance.OnLevelExited.RemoveListener(ActivateMainMenuCamera);
+        GameManager.Instance.OnLevelPaused.RemoveListener(ActivateMainMenuCamera);
+        GameManager.Instance.OnLevelResumed.RemoveListener(ActivatePlayerCamera);
     }
 
     private void ActivatePlayerCamera()
