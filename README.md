@@ -8,3 +8,5 @@ This game was created for GameJam+ 2021 by:
 Team name: Minutemen
 
 Team members: @petrushevski, @thef066,  @BoshkoSokolov, @cekozz
+
+Itch.io Page: https://petrushevskiapps.itch.io/paper-town
