@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
         var audioSource = CreateAudioSource(position);
         audioSource.clip = _onStepSoundClip;
         audioSource.volume = 0.5f;
-        audioSource.pitch = Random.Range(0.9f,1f);
+        audioSource.pitch = Random.Range(0.9f, 1f);
         audioSource.Play();
         Destroy(audioSource.gameObject, _onStepSoundClip.length + 0.1f);
     }
@@ -90,27 +90,37 @@ public class AudioManager : MonoBehaviour
     public void PlayMenuMusic()
     {
         musicAudioSource.Stop();
-        soundsAudioSource.Stop();
         if (menuMusicClip == null)
         {
             return;
         }
-        musicAudioSource.clip = menuMusicClip;
+        if (musicAudioSource.clip != menuMusicClip)
+        {
+            musicAudioSource.clip = menuMusicClip;
+        }
         musicAudioSource.volume = 1;
-        musicAudioSource.Play();
+        if (!musicAudioSource.isPlaying)
+        {
+            musicAudioSource.Play();
+        }
     }
 
     public void PlayGameplayMusic()
     {
-        musicAudioSource.Stop();
-        soundsAudioSource.Stop();
         if (gameplayMusicClip == null)
         {
+            musicAudioSource.Stop();
             return;
         }
-        musicAudioSource.clip = gameplayMusicClip;
+        if (musicAudioSource.clip != gameplayMusicClip)
+        {
+            musicAudioSource.clip = gameplayMusicClip;
+        }
         musicAudioSource.volume = 1;
-        musicAudioSource.Play();
+        if (!musicAudioSource.isPlaying)
+        {
+            musicAudioSource.Play();
+        }
     }
 
     public void PlayLevelCompletedSoundEffect()
@@ -124,7 +134,11 @@ public class AudioManager : MonoBehaviour
 
     public void DimMusic()
     {
-        musicAudioSource.volume = 0.5f;
+        musicAudioSource.volume = 0.33f;
+        if (!musicAudioSource.isPlaying)
+        {
+            musicAudioSource.Play();
+        }
     }
 
     private AudioSource CreateAudioSource(Vector3 position)
