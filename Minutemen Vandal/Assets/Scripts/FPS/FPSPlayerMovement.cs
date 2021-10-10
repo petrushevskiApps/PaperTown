@@ -6,11 +6,12 @@ using UnityEngine;
 public class FPSPlayerMovement : MonoBehaviour
 {
     //Assingables
-    public Transform playerCam;
     public Transform orientation;
+    public float footSoundDistance = 0.5f;
 
     //Other
     private Rigidbody rb;
+    private Transform playerCam;
 
     //Rotation and look
     private float xRotation;
@@ -45,10 +46,12 @@ public class FPSPlayerMovement : MonoBehaviour
     //Sliding
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
+    private Vector3 lastFootSoundPosition = Vector3.zero;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        playerCam = FindObjectOfType<FPSMoveCamera>().transform;    
     }
 
     void Start()
@@ -108,6 +111,12 @@ public class FPSPlayerMovement : MonoBehaviour
 
     private void Movement()
     {
+        if(Vector3.Distance(transform.position, lastFootSoundPosition) > footSoundDistance && grounded)
+        {
+            AudioManager.Instance.OnStep(transform.position);
+            lastFootSoundPosition = transform.position;
+        }
+
         //Extra gravity
         rb.AddForce(Vector3.down * Time.deltaTime * 10);
 

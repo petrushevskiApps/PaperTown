@@ -94,9 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb92d2f76e6ff34abeac8b42676637f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpeed: 65
-  paintColor: {r: 0.48115492, g: 0, b: 1, a: 1}
-  destroyAfterTime: 0.3
-  radius: 0.75
-  strength: 0.5
-  hardness: 0.5
+  _onHitSoundClip: {fileID: 8300000, guid: 16f2e566090fed846bec7b6ac02e072c, type: 3}

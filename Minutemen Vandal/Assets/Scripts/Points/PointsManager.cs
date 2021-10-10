@@ -1,18 +1,32 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PointsManager : MonoBehaviour
 {
     public float pointsPerVolumeUnit = 100f;
     public int Points { get; private set; } = 0;
+    [SerializeField]
+    private PointsCanvasController _pointsTextControllerPrefab;
 
     private Dictionary<Color, List<ScoredPoint>> scoredPointsPerColor = new Dictionary<Color, List<ScoredPoint>>();
+
+    public static PointsManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Use this to score blob hits after a collision.
     public void ScoreHit(Color color, Vector3 position, float radius)
     {
         List<ScoredPoint> scoredPointsForColor = new List<ScoredPoint>();
         bool colorKeyExists = scoredPointsPerColor.TryGetValue(color, out scoredPointsForColor);
+        if(scoredPointsForColor == null)
+        {
+            scoredPointsForColor = new List<ScoredPoint>();
+        }
         if (!colorKeyExists)
         {
             scoredPointsPerColor.Add(color, scoredPointsForColor);
@@ -43,6 +57,13 @@ public class PointsManager : MonoBehaviour
         var volumeToScore = volumeOfSphereToScore - biggestIntersectingVolume;
         int pointsToAdd = (int)(volumeToScore * pointsPerVolumeUnit);
         Points += pointsToAdd;
+        if (pointsToAdd > 0)
+        {
+            var pointsTextPrefab = Instantiate(_pointsTextControllerPrefab);
+            pointsTextPrefab.transform.position = position;
+            pointsTextPrefab.transform.LookAt(Camera.main.transform);
+            pointsTextPrefab.SetPointsText(pointsToAdd.ToString());
+        }
         ScoredPoint scoredPoint = new ScoredPoint(position, radius, pointsToAdd);
         scoredPointsForColor.Add(scoredPoint);
     }

@@ -15,9 +15,9 @@ public class FPSGunController : MonoBehaviour
     [SerializeField]
     private float _shotgunSpreadAngle = 3;
     [SerializeField]
-    private LineRenderer _laserLineRenderer;
-    [SerializeField]
     private ColorSwitchUI[] _actionBarButtons;
+    [SerializeField]
+    private RecoilController _recoil;
 
     [SerializeField]
     private Color[] _availableColor;
@@ -72,8 +72,11 @@ public class FPSGunController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            if(_recoil)
+                _recoil.StartRecoil(_shootTime, 10, 10, 10);
             if (_lastShotTime + _shootTime < Time.time)
             {
+                AudioManager.Instance.OnFire(transform.position);
                 for (int j = 0; j < _shotgunNumberOfBullets; j++)
                 {
                     var bullet = Instantiate(_bulletPrefab);
@@ -91,6 +94,8 @@ public class FPSGunController : MonoBehaviour
     private void SetActiveColor(int index)
     {
         _currentColorIndex = index;
+        if (_actionBarButtons.Length < index)
+            return;
         for (int i = 0; i < _actionBarButtons.Length; i++)
         {
             _actionBarButtons[i].SetActive(i == index);
