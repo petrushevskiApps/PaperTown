@@ -19,13 +19,19 @@ public class FPSGunController : MonoBehaviour
     [SerializeField]
     private RecoilController _recoil;
 
-    [SerializeField]
-    private Color[] _availableColor;
+    private List<Color> _availableColor;
 
     [Header("Bullet Data")]
     [SerializeField]
     private float _bulletSpeed = 20;
-    private Color _paintColor => _availableColor[_currentColorIndex];
+
+    private Color _paintColor
+    {
+        get
+        {
+            return _availableColor[_currentColorIndex];
+        }
+    }
     [SerializeField]
     private float _destroyAfterTime = 3;
     [SerializeField]
@@ -38,6 +44,34 @@ public class FPSGunController : MonoBehaviour
     private float _shootTime => 1f / (float)_maxRoundsPerSecond;
     private float _lastShotTime = 0;
     private int _currentColorIndex = 0;
+    private bool isLevelActive = false;
+
+    private void Awake()
+    {
+        GameManager.Instance.OnLevelStarted.AddListener(OnLevelStart);
+
+        GameManager.Instance.OnLevelExited.AddListener(OnLevelExited);
+        GameManager.Instance.OnLevelCompleted.AddListener(OnLevelExited);
+        GameManager.Instance.OnLevelFailed.AddListener(OnLevelExited);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnLevelStarted.RemoveListener(OnLevelStart);
+        GameManager.Instance.OnLevelExited.RemoveListener(OnLevelExited);
+        GameManager.Instance.OnLevelCompleted.RemoveListener(OnLevelExited);
+        GameManager.Instance.OnLevelFailed.RemoveListener(OnLevelExited);
+    }
+
+    private void OnLevelStart()
+    {
+        _availableColor = GameManager.Instance.GetLevelAvailableColors();
+        isLevelActive = true;
+    }
+    private void OnLevelExited()
+    {
+        isLevelActive = false;
+    }
 
     private void Start()
     {
@@ -49,6 +83,8 @@ public class FPSGunController : MonoBehaviour
 
     private void Update()
     {
+        if(!isLevelActive) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetActiveColor(0);
@@ -93,9 +129,10 @@ public class FPSGunController : MonoBehaviour
 
     private void SetActiveColor(int index)
     {
+        if (index > _actionBarButtons.Length &&  index >= _availableColor.Count) return;
+
         _currentColorIndex = index;
-        if (_actionBarButtons.Length < index)
-            return;
+
         for (int i = 0; i < _actionBarButtons.Length; i++)
         {
             _actionBarButtons[i].SetActive(i == index);

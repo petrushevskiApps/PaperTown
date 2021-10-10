@@ -6,19 +6,21 @@ using UnityEngine.UI;
 
 public class LevelCompletedScreen : UIScreen
 {
-    [SerializeField] private Button playAgainButton;
+    [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button mainScreenButton;
     [SerializeField] private TextMeshProUGUI congratulationsText;
+    [SerializeField] private Image rewardImage;
+
 
     private void Awake()
     {
-        playAgainButton.onClick.AddListener(PlayAgainClicked);
+        nextLevelButton.onClick.AddListener(PlayAgainClicked);
         mainScreenButton.onClick.AddListener(GoToMainScreenClicked);
     }
 
     private void OnDestroy()
     {
-        playAgainButton.onClick.RemoveListener(PlayAgainClicked);
+        nextLevelButton.onClick.RemoveListener(PlayAgainClicked);
         mainScreenButton.onClick.RemoveListener(GoToMainScreenClicked);
     }
 
@@ -26,9 +28,20 @@ public class LevelCompletedScreen : UIScreen
     {
         SetText();
     }
+
+    
     private void SetText()
     {
-        congratulationsText.text = $"Level # completed";
+        if (GameManager.Instance.IsGameCompleted)
+        {
+            congratulationsText.text = $"All Levels Completed";
+        }
+        else
+        {
+            congratulationsText.text = $"Level {GameManager.Instance.LevelId} completed";
+            rewardImage.color = GameManager.Instance.GetLevelData(GameManager.Instance.LevelId - 1).levelReward;
+        }
+        
     }
 
     private void PlayAgainClicked()

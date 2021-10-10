@@ -7,18 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public UnityEvent OnGameStarted = new UnityEvent();
-    public UnityEvent OnLevelStarted = new UnityEvent();
-    public UnityEvent OnLevelPaused = new UnityEvent();
-    public UnityEvent OnLevelResumed = new UnityEvent();
-    public UnityEvent OnLevelExited = new UnityEvent();
-    public UnityEvent OnLevelCompleted = new UnityEvent();
-    public UnityEvent OnLevelFailed = new UnityEvent();
+    private const string LEVEL_ID_KEY = "level_id_key";
 
-    public UnityEvent OnPointsEarned = new UnityEvent();
-    public UnityEvent OnProgressMade = new UnityEvent();
+    [HideInInspector] public UnityEvent OnGameStarted = new UnityEvent();
+    [HideInInspector] public UnityEvent OnLevelStarted = new UnityEvent();
+    [HideInInspector] public UnityEvent OnLevelPaused = new UnityEvent();
+    [HideInInspector] public UnityEvent OnLevelResumed = new UnityEvent();
+    [HideInInspector] public UnityEvent OnLevelExited = new UnityEvent();
+    [HideInInspector] public UnityEvent OnLevelCompleted = new UnityEvent();
+    [HideInInspector] public UnityEvent OnLevelFailed = new UnityEvent();
+
+    [HideInInspector] public UnityEvent OnPointsEarned = new UnityEvent();
+    [HideInInspector] public UnityEvent OnProgressMade = new UnityEvent();
 
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject environmentPrefab;
+    [SerializeField] private List<LevelData> listLevelDatas;
 
     public static GameManager Instance;
 
@@ -27,9 +31,20 @@ public class GameManager : MonoBehaviour
     private int levelPoints = 0;
 
     private PointsManager pointsManager;
-
-    [SerializeField] private GameObject environmentPrefab;
     private GameObject environmentInstance;
+
+    public int LevelPoints => levelPoints;
+    public int LevelId
+    {
+        get => PlayerPrefs.GetInt(LEVEL_ID_KEY, 0);
+        private set
+        {
+            if (value > 0 && value > LevelId)
+            {
+                PlayerPrefs.SetInt(LEVEL_ID_KEY, value);
+            }
+        }
+    }
 
     public float LevelProgress
     {
@@ -51,6 +66,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool IsGameCompleted => LevelId == listLevelDatas.Count;
 
     public void Awake()
     {
@@ -72,7 +88,7 @@ public class GameManager : MonoBehaviour
     private void OnPointsAdded(int points)
     {
         levelPoints += points;
-        LevelProgress = levelPoints / 1000f;
+        LevelProgress = levelPoints / (float)listLevelDatas[LevelId].pointsToEarnInLevel;
 
         if(LevelProgress >= 1f)
         {
@@ -120,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        
+        LevelId++;
         OnLevelCompleted.Invoke();
         player.SetActive(false);
         ToggleCursor(true);
@@ -142,5 +158,26 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = isActive;
         Cursor.lockState = isActive ? CursorLockMode.Confined : CursorLockMode.Locked;
+    }
+
+    public List<Color> GetLevelAvailableColors()
+    {
+        return listLevelDatas[LevelId].unlockedColors;
+    }
+
+    public LevelData GetCurrentLevelData()
+    {
+        return GetLevelData(LevelId);
+    }
+    public LevelData GetLevelData(int levelId)
+    {
+        if (levelId < listLevelDatas.Count)
+        {
+            return listLevelDatas[levelId];
+        }
+        else
+        {
+            return listLevelDatas[listLevelDatas.Count - 1];
+        }
     }
 }

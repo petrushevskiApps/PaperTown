@@ -523,6 +523,12 @@ MonoBehaviour:
       m_Calls: []
   player: {fileID: 1263743530}
   environmentPrefab: {fileID: 5248722273031433752, guid: 116ecf26d98c7ce479e5619cad3f80cc, type: 3}
+  listLevelDatas:
+  - {fileID: 11400000, guid: 4b203681c9ba8ac438c718923d1e5c48, type: 2}
+  - {fileID: 11400000, guid: 442b979b54bea1d4c98671500265135a, type: 2}
+  - {fileID: 11400000, guid: 67bca81f33691dc49be04684962d6c3d, type: 2}
+  - {fileID: 11400000, guid: 9441d39a73f98a2418582ed0163c546b, type: 2}
+  - {fileID: 11400000, guid: 058a34953c194784c80ae52184c796d0, type: 2}
 --- !u!4 &1110679127
 Transform:
   m_ObjectHideFlags: 0
@@ -1043,6 +1049,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7580051087970114601, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
+      propertyPath: footSoundDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7580051087970114602, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1094,18 +1104,6 @@ PrefabInstance:
     - target: {fileID: 7580051087970114604, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7580051087991191391, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7580051089032082563, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7580051089032082566, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa121830398d79e48b5275631e0aa92d, type: 3}
