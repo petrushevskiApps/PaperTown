@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 7580051088972396841}
   footSoundDistance: 0.8
-  moveSpeed: 1500
+  moveSpeed: 4500
   maxSpeed: 5
   grounded: 0
   whatIsGround:

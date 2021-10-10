@@ -5384,8 +5384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundPanel: {fileID: 6133609745127024170}
   ColorPanel: {fileID: 2211738415943425515}
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _inactiveColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  _inactiveColor: {r: 0, g: 0, b: 0, a: 0.47058824}
   _buttonText: {fileID: 2812782387485458807}
 --- !u!1 &3335487851052643586
 GameObject:
@@ -5479,8 +5479,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundPanel: {fileID: 334740322074718751}
   ColorPanel: {fileID: 8392871401712876055}
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _inactiveColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  _inactiveColor: {r: 0, g: 0, b: 0, a: 0.47058824}
   _buttonText: {fileID: 371235768968202416}
 --- !u!1 &4345961829113813369
 GameObject:
@@ -5574,8 +5574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundPanel: {fileID: 260999747481022172}
   ColorPanel: {fileID: 7407132081801246907}
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _inactiveColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  _inactiveColor: {r: 0, g: 0, b: 0, a: 0.47058824}
   _buttonText: {fileID: 563133321807431839}
 --- !u!1 &4681244314084942703
 GameObject:
@@ -5669,8 +5669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundPanel: {fileID: 2257971763655899410}
   ColorPanel: {fileID: 1116170496830058367}
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _inactiveColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  _inactiveColor: {r: 0, g: 0, b: 0, a: 0.47058824}
   _buttonText: {fileID: 2079966562992984292}
 --- !u!1 &5229289627962050741
 GameObject:
@@ -6131,8 +6131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundPanel: {fileID: 9184287073550512039}
   ColorPanel: {fileID: 4099097637257450021}
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _inactiveColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  _inactiveColor: {r: 0, g: 0, b: 0, a: 0.47058824}
   _buttonText: {fileID: 6237805290402365418}
 --- !u!1 &9055246250585761539
 GameObject:
