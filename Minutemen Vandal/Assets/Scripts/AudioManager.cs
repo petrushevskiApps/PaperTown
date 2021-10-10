@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
     private AudioSource soundsAudioSource;
     [SerializeField]
     private AudioClip levelCompletedClip;
+    [SerializeField]
+    private AudioClip buttonClickedClip;
 
     private void Awake()
     {
@@ -130,6 +132,15 @@ public class AudioManager : MonoBehaviour
             return;
         }
         soundsAudioSource.PlayOneShot(levelCompletedClip);
+    }
+
+    public void OnButtonClicked()
+    {
+        if (buttonClickedClip == null)
+        {
+            return;
+        }
+        soundsAudioSource.PlayOneShot(buttonClickedClip);
     }
 
     public void DimMusic()

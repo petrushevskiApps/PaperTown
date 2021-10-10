@@ -46,11 +46,13 @@ public class LevelCompletedScreen : UIScreen
 
     private void PlayAgainClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         GameManager.Instance.StartLevel();
     }
 
     private void GoToMainScreenClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         GameManager.Instance.ExitLevel();
     }
 }

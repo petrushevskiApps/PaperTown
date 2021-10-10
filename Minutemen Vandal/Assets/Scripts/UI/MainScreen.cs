@@ -22,11 +22,13 @@ public class MainScreen : UIScreen
 
     private void StartLevelClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         GameManager.Instance.StartLevel();
     }
 
     private void ExitClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         GameManager.Instance.ExitGame();
     }
 }
