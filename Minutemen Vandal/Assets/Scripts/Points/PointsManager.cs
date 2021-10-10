@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PointsManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PointsManager : MonoBehaviour
     private Dictionary<Color, List<ScoredPoint>> scoredPointsPerColor = new Dictionary<Color, List<ScoredPoint>>();
 
     public static PointsManager Instance;
+
+    public UnityEvent<int> OnColorPoints = new UnityEvent<int>();
 
     private void Awake()
     {
@@ -63,6 +66,7 @@ public class PointsManager : MonoBehaviour
             pointsTextPrefab.transform.position = position;
             pointsTextPrefab.transform.LookAt(Camera.main.transform);
             pointsTextPrefab.SetPointsText(pointsToAdd.ToString());
+            OnColorPoints.Invoke(pointsToAdd);
         }
         ScoredPoint scoredPoint = new ScoredPoint(position, radius, pointsToAdd);
         scoredPointsForColor.Add(scoredPoint);

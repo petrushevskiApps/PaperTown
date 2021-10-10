@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class FPSMoveCamera : MonoBehaviour
 {
-    private Transform _player;
+    [SerializeField] private Transform _player;
 
-    private void Awake()
-    {
-        _player = FindObjectOfType<FPSPlayerMovement>().transform;
-    }
     void Update()
     {
-        transform.position = _player.transform.position;
+        if (_player.gameObject)
+        {
+            transform.position = _player.transform.position;
+        }
     }
 }
