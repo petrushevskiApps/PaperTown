@@ -241,6 +241,91 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1001 &414971103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4466891494608981589, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_Name
+      value: Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782114143734723746, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+--- !u!1 &414971104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4466891494608981589, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+  m_PrefabInstance: {fileID: 414971103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &414971105 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4707969218039729164, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+  m_PrefabInstance: {fileID: 414971103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &414971106 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3907487230498495281, guid: f66874742a73f3d47aeba85c25daad0b, type: 3}
+  m_PrefabInstance: {fileID: 414971103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &414971107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414971104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11b5d8fd90e6784d85faf3e30741ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 539817951}
 --- !u!114 &482755879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3690348424734312728, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
@@ -255,6 +340,11 @@ MonoBehaviour:
 --- !u!1 &539817949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6468255388890003341, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
+  m_PrefabInstance: {fileID: 1582669057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &539817951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 142299283394287922, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
   m_PrefabInstance: {fileID: 1582669057}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &653260035
@@ -443,11 +533,11 @@ PrefabInstance:
     - target: {fileID: 6239085758003919140, guid: 5799c80823ce7d64680d9f519881eee6, type: 3}
       propertyPath: musicAudioSource
       value: 
-      objectReference: {fileID: 1582669059}
+      objectReference: {fileID: 414971106}
     - target: {fileID: 6239085758003919140, guid: 5799c80823ce7d64680d9f519881eee6, type: 3}
       propertyPath: soundsAudioSource
       value: 
-      objectReference: {fileID: 1582669058}
+      objectReference: {fileID: 414971105}
     - target: {fileID: 6239085758003919141, guid: 5799c80823ce7d64680d9f519881eee6, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -612,6 +702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193758099}
   - component: {fileID: 1193758100}
+  - component: {fileID: 1193758101}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -651,6 +742,14 @@ MonoBehaviour:
   mainMenuCamera: {fileID: 191211934}
   playerCamera: {fileID: 539817949}
   overviewCamera: {fileID: 191211934}
+--- !u!81 &1193758101
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193758098}
+  m_Enabled: 1
 --- !u!114 &1259702275 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3350608992439243949, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
@@ -744,16 +843,6 @@ PrefabInstance:
       objectReference: {fileID: 1263743536}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
---- !u!82 &1582669058 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4865376776715223457, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
-  m_PrefabInstance: {fileID: 1582669057}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1582669059 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3812707782999430812, guid: f5e631f62ee762a4dbf3a99a26b5214f, type: 3}
-  m_PrefabInstance: {fileID: 1582669057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1588783674
 GameObject:
   m_ObjectHideFlags: 0
