@@ -69,11 +69,11 @@ public class FPSGunController : MonoBehaviour
         GameManager.Instance.OnLevelFailed.RemoveListener(OnLevelExited);
     }
 
-    private void OnEnable()
-    {
-        SetActiveColor(0);
-        isLevelActive = true;
-    }
+    //private void OnEnable()
+    //{
+    //    SetActiveColor(0);
+    //    isLevelActive = true;
+    //}
 
     private void OnLevelStart()
     {
@@ -91,7 +91,7 @@ public class FPSGunController : MonoBehaviour
     {
         for (int i = 0; i < _actionBarButtons.Length; i++)
         {
-            _actionBarButtons[i].SetUI(_availableColor[i], i == 0, (i+1).ToString());
+            _actionBarButtons[i].SetUI(_availableColor[i], i == 0, (i + 1).ToString());
         }
     }
 
@@ -100,7 +100,7 @@ public class FPSGunController : MonoBehaviour
         HandleActionBarInput();
         if (Input.GetMouseButton(0) && isLevelActive)
         {
-            if(_recoil)
+            if (_recoil)
                 _recoil.StartRecoil(_shootTime, 10, 10, 10);
             if (_lastShotTime + _shootTime < Time.time)
             {
@@ -167,7 +167,7 @@ public class FPSGunController : MonoBehaviour
 
     private void SetActiveColor(int index)
     {
-        if (index > _actionBarButtons.Length &&  index >= _availableColor.Count) return;
+        if (_actionBarButtons == null || _availableColor == null || (index > _actionBarButtons.Length && index >= _availableColor.Count)) return;
         GameManager.Instance.SetColorSwitchActionButtons(index);
         _currentColorIndex = index;
         _laserLinerednerer.material.color = _paintColor;
