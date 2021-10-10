@@ -34,5 +34,6 @@ public class ColorSwitchUI : MonoBehaviour
     {
         ColorPanel.color = _inactiveColor;
         BackgroundPanel.color = _inactiveColor;
+        _buttonText.text = "X";
     }
 }
