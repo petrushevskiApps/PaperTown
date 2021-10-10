@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -182,11 +183,17 @@ public class GameManager : MonoBehaviour
     public void SetColorSwitchActionButtons(int index)
     {
         var colors = GetCurrentLevelData().unlockedColors;
+        if (colors == null || colors.Count == 0)
+        {
+            return;
+        }
         for (int i = 0; i < colorSwitchActionButtons.Length; i++)
         {
-            var color = colors[i];
             if (i < colors.Count)
-                colorSwitchActionButtons[i].SetUI(color, (i==index), (i + 1).ToString());
+            {
+                var color = colors[i];
+                colorSwitchActionButtons[i].SetUI(color, (i == index), (i + 1).ToString());
+            }
             else
                 colorSwitchActionButtons[i].SetEmpty();
         }
@@ -228,6 +235,12 @@ public class GameManager : MonoBehaviour
                 ResumeLevel();
             }
         }
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+#endif
     }
 
     public string ChangeGun(bool nextGun = true)
@@ -235,7 +248,7 @@ public class GameManager : MonoBehaviour
         string gunName = "";
         int indexMove = nextGun ? 1 : -1;
         currentGunIndex += indexMove;
-        if(currentGunIndex >= guns.Length || currentGunIndex < 0)
+        if (currentGunIndex >= guns.Length || currentGunIndex < 0)
         {
             currentGunIndex = 0;
         }
