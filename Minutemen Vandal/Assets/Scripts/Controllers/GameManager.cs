@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviour
     public void ExitLevel()
     {
         isPaused = false;
+        Time.timeScale = 1;
         OnLevelExited.Invoke();
         player.SetActive(false);
         ToggleCursor(true);
