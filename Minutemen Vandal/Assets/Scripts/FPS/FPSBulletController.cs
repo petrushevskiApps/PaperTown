@@ -13,6 +13,24 @@ public class FPSBulletController : MonoBehaviour
     private float _hardness = 1;
     private Vector3 _previousPosition = Vector3.zero;
 
+    private void Awake()
+    {
+        GameManager.Instance.OnLevelCompleted.AddListener(LevelCompleted);
+        GameManager.Instance.OnLevelExited.AddListener(LevelCompleted);
+        GameManager.Instance.OnLevelFailed.AddListener(LevelCompleted);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnLevelCompleted.RemoveListener(LevelCompleted);
+        GameManager.Instance.OnLevelExited.RemoveListener(LevelCompleted);
+        GameManager.Instance.OnLevelFailed.RemoveListener(LevelCompleted);
+    }
+    private void LevelCompleted()
+    {
+        Destroy(gameObject);
+    }
+
     private void Update()
     {
         Vector3 pos = transform.position + transform.forward * _bulletSpeed * Time.deltaTime;
