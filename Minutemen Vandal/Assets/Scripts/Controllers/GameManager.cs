@@ -248,10 +248,7 @@ public class GameManager : MonoBehaviour
         string gunName = "";
         int indexMove = nextGun ? 1 : -1;
         currentGunIndex += indexMove;
-        if (currentGunIndex >= guns.Length || currentGunIndex < 0)
-        {
-            currentGunIndex = 0;
-        }
+        currentGunIndex = currentGunIndex < 0 ? guns.Length - 1 : currentGunIndex >= guns.Length ? 0 : currentGunIndex;
         for (int i = 0; i < guns.Length; i++)
         {
             guns[i].transform.parent.gameObject.SetActive(i == currentGunIndex);
