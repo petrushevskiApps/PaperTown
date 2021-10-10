@@ -51,3 +51,4 @@ MonoBehaviour:
   gameplayMusicClip: {fileID: 8300000, guid: cdd4df3955746b942b8be284979d6b37, type: 3}
   soundsAudioSource: {fileID: 0}
   levelCompletedClip: {fileID: 8300000, guid: 5d20fe9d335fcc543a3edde41486b325, type: 3}
+  buttonClickedClip: {fileID: 8300000, guid: 53d0b2a3ad80c47418b4f60c7877b282, type: 3}

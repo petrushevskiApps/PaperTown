@@ -26,21 +26,25 @@ public class PauseScreen : UIScreen
 
     private void ResumeLevelClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         GameManager.Instance.ResumeLevel();
     }
 
     private void ExitLevelClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         GameManager.Instance.ExitLevel();
     }
 
     private void NextWeaponClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         gunNameText.text = GameManager.Instance.ChangeGun(true);
     }
 
     private void PreviousWeaponClicked()
     {
+        AudioManager.Instance.OnButtonClicked();
         gunNameText.text = GameManager.Instance.ChangeGun(false);
     }
 }
