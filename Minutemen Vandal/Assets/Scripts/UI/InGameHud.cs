@@ -8,6 +8,7 @@ public class InGameHud : UIScreen
     [SerializeField] private Image progressIndicator;
     [SerializeField] private TextMeshProUGUI progressText;
     [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI guideText;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class InGameHud : UIScreen
         GameManager.Instance.OnProgressMade.AddListener(OnProgressMade);
     }
 
-    
+
 
     private void OnDestroy()
     {
@@ -29,6 +30,8 @@ public class InGameHud : UIScreen
 
     private void OnEnable()
     {
+        guideText.gameObject.SetActive(GameManager.Instance.LevelId > 0);
+
         if (!GameManager.Instance.IsGameCompleted)
         {
             levelText.text = $"Level {GameManager.Instance.LevelId + 1}";
@@ -39,6 +42,7 @@ public class InGameHud : UIScreen
             levelText.text = "Infinity Coloring";
             progressBar.gameObject.SetActive(false);
         }
+
     }
     private void OnProgressMade()
     {

@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +29,7 @@ public class GameManager : MonoBehaviour
     private int levelPoints = 0;
 
     private PointsManager pointsManager;
-    private GameObject environmentInstance;
+    [SerializeField]  private GameObject environmentInstance;
 
     public int LevelPoints => levelPoints;
     public int LevelId
