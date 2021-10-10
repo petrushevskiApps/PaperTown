@@ -14,11 +14,45 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip _onStepSoundClip;
 
+    [Header("Music")]
+    [SerializeField]
+    private AudioSource musicAudioSource;
+    [SerializeField]
+    private AudioClip menuMusicClip;
+    [SerializeField]
+    private AudioClip gameplayMusicClip;
+
     public static AudioManager Instance;
+
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioSource soundsAudioSource;
+    [SerializeField]
+    private AudioClip levelCompletedClip;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void Start()
+    {
+        GameManager.Instance.OnLevelStarted.AddListener(OnLevelStarted);
+        GameManager.Instance.OnLevelPaused.AddListener(OnLevelPaused);
+        GameManager.Instance.OnLevelCompleted.AddListener(OnLevelCompleted);
+        GameManager.Instance.OnLevelExited.AddListener(OnLevelExited);
+        GameManager.Instance.OnLevelResumed.AddListener(OnLevelStarted);
+        PlayMenuMusic();
+    }
+
+
+    public void OnDestroy()
+    {
+        GameManager.Instance.OnLevelStarted.RemoveListener(OnLevelStarted);
+        GameManager.Instance.OnLevelPaused.RemoveListener(OnLevelPaused);
+        GameManager.Instance.OnLevelCompleted.RemoveListener(OnLevelCompleted);
+        GameManager.Instance.OnLevelExited.RemoveListener(OnLevelExited);
+        GameManager.Instance.OnLevelResumed.RemoveListener(OnLevelStarted);
     }
 
     public void OnStep(Vector3 position)
@@ -53,6 +87,30 @@ public class AudioManager : MonoBehaviour
         Destroy(audioSource.gameObject, _onHitSoundClip.length + 0.1f);
     }
 
+    public void PlayMenuMusic()
+    {
+        musicAudioSource.clip = menuMusicClip;
+        musicAudioSource.volume = 1;
+        musicAudioSource.Play();
+    }
+
+    public void PlayGameplayMusic()
+    {
+        musicAudioSource.clip = gameplayMusicClip;
+        musicAudioSource.volume = 1;
+        musicAudioSource.Play();
+    }
+
+    public void PlayLevelCompletedSoundEffect()
+    {
+        soundsAudioSource.PlayOneShot(levelCompletedClip);
+    }
+
+    public void DimMusic()
+    {
+        musicAudioSource.volume = 0.5f;
+    }
+
     private AudioSource CreateAudioSource(Vector3 position)
     {
         var tempObject = new GameObject();
@@ -61,4 +119,22 @@ public class AudioManager : MonoBehaviour
         return audioSource;
     }
 
+    private void OnLevelCompleted()
+    {
+        PlayLevelCompletedSoundEffect();
+    }
+
+    private void OnLevelPaused()
+    {
+        DimMusic();
+    }
+
+    private void OnLevelStarted()
+    {
+        PlayGameplayMusic();
+    }
+    private void OnLevelExited()
+    {
+        PlayMenuMusic();
+    }
 }
