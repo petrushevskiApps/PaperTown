@@ -72,6 +72,7 @@ public class FPSGunController : MonoBehaviour
     {
         _availableColor = GameManager.Instance.GetLevelAvailableColors();
         _laserLinerednerer.material.color = _paintColor;
+        SetActiveColor(0);
         isLevelActive = true;
     }
     private void OnLevelExited()
@@ -160,7 +161,7 @@ public class FPSGunController : MonoBehaviour
     private void SetActiveColor(int index)
     {
         if (index > _actionBarButtons.Length &&  index >= _availableColor.Count) return;
-
+        GameManager.Instance.SetColorSwitchActionButtons(index);
         _currentColorIndex = index;
         _laserLinerednerer.material.color = _paintColor;
 

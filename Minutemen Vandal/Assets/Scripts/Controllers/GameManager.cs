@@ -21,16 +21,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject environmentPrefab;
     [SerializeField] private List<LevelData> listLevelDatas;
+    [SerializeField] private ColorSwitchUI[] colorSwitchActionButtons;
 
     public static GameManager Instance;
 
     private float levelProgress = 0;
-    
+
     private int levelPoints = 0;
     private bool isPaused;
 
     private PointsManager pointsManager;
-    [SerializeField]  private GameObject environmentInstance;
+    [SerializeField] private GameObject environmentInstance;
 
     public int LevelPoints => levelPoints;
     public int LevelId
@@ -168,9 +169,24 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = isActive ? CursorLockMode.Confined : CursorLockMode.Locked;
     }
 
+    public void SetColorSwitchActionButtons(int index)
+    {
+        var colors = GetCurrentLevelData().unlockedColors;
+        for (int i = 0; i < colorSwitchActionButtons.Length; i++)
+        {
+            var color = colors[i];
+            if (i < colors.Count)
+                colorSwitchActionButtons[i].SetUI(color, (i==index), (i + 1).ToString());
+            else
+                colorSwitchActionButtons[i].SetEmpty();
+        }
+    }
+
     public List<Color> GetLevelAvailableColors()
     {
-        return GetCurrentLevelData().unlockedColors;
+        var colors = GetCurrentLevelData().unlockedColors;
+        SetColorSwitchActionButtons(100);
+        return colors;
     }
 
     public LevelData GetCurrentLevelData()

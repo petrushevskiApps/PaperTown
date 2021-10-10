@@ -30,4 +30,9 @@ public class ColorSwitchUI : MonoBehaviour
         BackgroundPanel.color = active ? _activeColor : _inactiveColor;
     }
 
+    public void SetEmpty()
+    {
+        ColorPanel.color = _inactiveColor;
+        BackgroundPanel.color = _inactiveColor;
+    }
 }
