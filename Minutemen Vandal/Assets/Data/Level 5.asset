@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0707de7bbfa980b47b158f9aa1897d51, type: 3}
   m_Name: Level 5
   m_EditorClassIdentifier: 
-  pointsToEarnInLevel: 500
+  pointsToEarnInLevel: 2500
   levelReward: {r: 1, g: 1, b: 1, a: 1}
   unlockedColors:
   - {r: 0.22745098, g: 1, b: 0, a: 1}

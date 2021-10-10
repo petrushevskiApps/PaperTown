@@ -7,6 +7,7 @@ using Image = UnityEngine.UI.Image;
 
 public class InGameHud : UIScreen
 {
+    [SerializeField] private GameObject progressBar;
     [SerializeField] private Image progressIndicator;
     [SerializeField] private TextMeshProUGUI progressText;
     [SerializeField] private TextMeshProUGUI levelText;
@@ -34,12 +35,12 @@ public class InGameHud : UIScreen
         if (!GameManager.Instance.IsGameCompleted)
         {
             levelText.text = $"Level {GameManager.Instance.LevelId + 1}";
-            progressIndicator.gameObject.SetActive(true);
+            progressBar.gameObject.SetActive(true);
         }
         else
         {
             levelText.text = "Infinity Coloring";
-            progressIndicator.gameObject.SetActive(false);
+            progressBar.gameObject.SetActive(false);
         }
     }
     private void OnProgressMade()

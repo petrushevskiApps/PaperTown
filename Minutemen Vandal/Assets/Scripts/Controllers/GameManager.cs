@@ -87,12 +87,15 @@ public class GameManager : MonoBehaviour
 
     private void OnPointsAdded(int points)
     {
-        levelPoints += points;
-        LevelProgress = levelPoints / (float)listLevelDatas[LevelId].pointsToEarnInLevel;
-
-        if(LevelProgress >= 1f)
+        if (!IsGameCompleted)
         {
-            LevelCompleted();
+            levelPoints += points;
+            LevelProgress = levelPoints / (float)listLevelDatas[LevelId].pointsToEarnInLevel;
+
+            if (LevelProgress >= 1f)
+            {
+                LevelCompleted();
+            }
         }
     }
 
@@ -162,7 +165,7 @@ public class GameManager : MonoBehaviour
 
     public List<Color> GetLevelAvailableColors()
     {
-        return listLevelDatas[LevelId].unlockedColors;
+        return GetCurrentLevelData().unlockedColors;
     }
 
     public LevelData GetCurrentLevelData()
