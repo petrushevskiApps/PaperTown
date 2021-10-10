@@ -89,6 +89,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMenuMusic()
     {
+        musicAudioSource.Stop();
+        soundsAudioSource.Stop();
         if (menuMusicClip == null)
         {
             return;
@@ -100,7 +102,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGameplayMusic()
     {
-        if (menuMusicClip == null)
+        musicAudioSource.Stop();
+        soundsAudioSource.Stop();
+        if (gameplayMusicClip == null)
         {
             return;
         }
