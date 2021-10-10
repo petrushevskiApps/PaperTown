@@ -18,6 +18,11 @@ public class FPSGunController : MonoBehaviour
     private ColorSwitchUI[] _actionBarButtons;
     [SerializeField]
     private RecoilController _recoil;
+    [SerializeField]
+    private Transform _aimOrientation;
+    [SerializeField]
+    private LineRenderer _laserLinerednerer;
+
 
     private List<Color> _availableColor;
 
@@ -66,6 +71,7 @@ public class FPSGunController : MonoBehaviour
     private void OnLevelStart()
     {
         _availableColor = GameManager.Instance.GetLevelAvailableColors();
+        _laserLinerednerer.material.color = _paintColor;
         isLevelActive = true;
     }
     private void OnLevelExited()
@@ -83,7 +89,36 @@ public class FPSGunController : MonoBehaviour
 
     private void Update()
     {
-        if(!isLevelActive) return;
+        HandleActionBarInput();
+        if (Input.GetMouseButton(0) && isLevelActive)
+        {
+            if(_recoil)
+                _recoil.StartRecoil(_shootTime, 10, 10, 10);
+            if (_lastShotTime + _shootTime < Time.time)
+            {
+                AudioManager.Instance.OnFire(transform.position);
+                for (int j = 0; j < _shotgunNumberOfBullets; j++)
+                {
+                    var bullet = Instantiate(_bulletPrefab);
+                    bullet.transform.position = _bulletSpawnPosition.position;
+                    bullet.transform.forward = transform.forward;
+                    var randomSpray = bullet.transform.localEulerAngles + new Vector3(Random.Range(-_shotgunSpreadAngle, _shotgunSpreadAngle), Random.Range(-_shotgunSpreadAngle, _shotgunSpreadAngle), Random.Range(-_shotgunSpreadAngle, _shotgunSpreadAngle));
+                    bullet.transform.localEulerAngles = randomSpray;
+                    bullet.SetBulletData(_paintColor, _bulletSpeed, _destroyAfterTime, _radius, _strength, _hardness);
+                }
+                _lastShotTime = Time.time;
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        HandleLaserPointer();
+    }
+
+    private void HandleActionBarInput()
+    {
+        if (!isLevelActive) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -105,26 +140,21 @@ public class FPSGunController : MonoBehaviour
         {
             SetActiveColor(4);
         }
+    }
 
-        if (Input.GetMouseButton(0))
+    private void HandleLaserPointer()
+    {
+        _laserLinerednerer.SetPosition(0, _laserLinerednerer.transform.position);
+        var laserEndPos = _aimOrientation.position;
+        RaycastHit hit;
+        Physics.Raycast(_bulletSpawnPosition.position, (_aimOrientation.position - _laserLinerednerer.transform.position).normalized, out hit);
         {
-            if(_recoil)
-                _recoil.StartRecoil(_shootTime, 10, 10, 10);
-            if (_lastShotTime + _shootTime < Time.time)
+            if (hit.collider != null)
             {
-                AudioManager.Instance.OnFire(transform.position);
-                for (int j = 0; j < _shotgunNumberOfBullets; j++)
-                {
-                    var bullet = Instantiate(_bulletPrefab);
-                    bullet.transform.position = _bulletSpawnPosition.position;
-                    bullet.transform.forward = transform.forward;
-                    var randomSpray = bullet.transform.localEulerAngles + new Vector3(Random.Range(-_shotgunSpreadAngle, _shotgunSpreadAngle), Random.Range(-_shotgunSpreadAngle, _shotgunSpreadAngle), Random.Range(-_shotgunSpreadAngle, _shotgunSpreadAngle));
-                    bullet.transform.localEulerAngles = randomSpray;
-                    bullet.SetBulletData(_paintColor, _bulletSpeed, _destroyAfterTime, _radius, _strength, _hardness);
-                }
-                _lastShotTime = Time.time;
+                laserEndPos = hit.point;
             }
         }
+        _laserLinerednerer.SetPosition(1, laserEndPos);
     }
 
     private void SetActiveColor(int index)
@@ -132,6 +162,7 @@ public class FPSGunController : MonoBehaviour
         if (index > _actionBarButtons.Length &&  index >= _availableColor.Count) return;
 
         _currentColorIndex = index;
+        _laserLinerednerer.material.color = _paintColor;
 
         for (int i = 0; i < _actionBarButtons.Length; i++)
         {
